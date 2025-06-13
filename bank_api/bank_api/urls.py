@@ -20,12 +20,10 @@ from rest_framework.routers import DefaultRouter
 from django.http import JsonResponse
 from api.views import BankViewSet, BranchViewSet
 
-# Router for your API endpoints
 router = DefaultRouter()
 router.register('banks', BankViewSet)
 router.register('branches', BranchViewSet)
 
-# ✅ Root endpoint response
 def root_view(request):
     return JsonResponse({
         "message": "Welcome to the Bank API 👋",
@@ -36,7 +34,7 @@ def root_view(request):
     })
 
 urlpatterns = [
-    path('', root_view),  # ✅ This handles '/'
+    path('', root_view),  
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
 ]
